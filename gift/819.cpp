@@ -2,6 +2,7 @@
 #define N 3
 #define M 3
 int ave(int a[M+1]);
+<<<<<<< HEAD
 int line(int b[][N]);
 int main()
 {
@@ -76,85 +77,50 @@ int line(int b[][N])
 #define M 4
 float ave(int a[M]);
 float line(float b[]);
+=======
+int line(int b[]);
+>>>>>>> origin/master
 int main()
 {
-	int a[N][M]={0},i,j,find=0;
-	float b[N],c[N],d[N]={0},e[N]={0};
+	int a[N][M+1]={0},i,j,b[N]={0};
 	for(i=0;i<N;i++)
 	{
-	printf("µÚ%dÈË³É¼¨£º\n",i+1);
-	for(j=0;j<M;j++)
+	printf("ç¬¬%däººæˆç»©ï¼š\n",i+1);
+	for(j=1;j<=M;j++)
 	{
 		scanf("%d",&a[i][j]);
 		getchar();
 	}
-	b[i]=c[i]=ave(a[i]);
-	printf("×îÖÕ£º	%3.2f\n",c[i]);
-	for(j=0;j<M;j++)
-		d[j]+=fabs(a[i][j]-c[i]);
+	ave(a[i]);
+	printf("");
+	b[i]=a[i][0];
 	}
-		for(j=0;j<M;j++)
-		e[j]=d[j];
-		printf("Ñ¡ÊÖÅÅÐò:");
 	 line(b);
-	 		printf("ÆÀÎ¯ÅÅÐò:");
-	line(d);
-	printf("\nÑ¡ÊÖÐ¡½á");
-	 for(i=0;i<N;i+=find?find:1)
-	{
-		 find=0;
-
+	for(i=0;i<N;i++)
 		for(j=0;j<N;j++)
-		{
-			if(b[i]==c[j]) 
-			{
-				if(find++==0)	printf("µÚ%dÃûÎª%dºÅÑ¡ÊÖ %3.2f·Ö\n",i+1,j+1,b[i]);
-				else 	printf("²¢ÁÐµÚ%dÃûÎª%dºÅÑ¡ÊÖ %3.2f·Ö\n",i+1,j+1,b[i]);
-			}
-		}
-	}
-	 find=0;
-	 	printf("\nÆÀÎ¯Ð¡½á");
-	 	 for(i=M-1;i>=0;i-=find?find:1)
-	{
-		 find=0;
-
-		for(j=0;j<M;j++)
-		{
-			if(d[i]==e[j]) 
-			{
-				if(find++==0)	printf("µÚ%dÃûÎª%dºÅÆÀÎ¯,Ïà²î%3.2f·Ö\n",M-i,j+1,d[i]);
-				else 	printf("²¢ÁÐµÚ%dÃûÎª%dºÅÆÀÎ¯,Ïà²î%3.2f·Ö\n",M-i,j+1,d[i]);
-			}
-		}
-	}
+			if(b[i]==a[j][0]) printf("ç¬¬%dåä¸º%då·é€‰æ‰‹ %dåˆ†\n",i+1,j+1,b[i]);
 	return 0;
 }
-float ave(int a[M])
+int ave(int a[M+1])
 {
 	int i,max,min;
-	float count=0;
-	max=a[0];
-	min=a[0];
-	for(i=0;i<M;i++)
+	max=a[1];min=a[1];
+	for(i=1;i<=M;i++)
 	{
-		count=count+a[i];
 		if(a[i]>max) max = a[i];
 		if(a[i]<min) min = a[i];
+		a[0]+=a[i];
 	}
-	//printf("		%f\n",count);
-	count-=max+min;
-	count=count/(float)(M-2);
-	return count;
+	a[0]-=max+min;
+	a[0]/=M-2;
+	return 0;
 }
-float line(float b[])
+int line(int b[])
 {
-	int i,j,n;
-	float t;
-	n=sizeof(b);
-	for(i=0;i<n-1;i++)
+	int i,j,t;
+	for(i=0;i<N-1;i++)
 	{
-		for(j=i+1;j<n;j++)
+		for(j=1;j<N;j++)
 		{
 			if(b[i]<b[j]) 
 			{
@@ -164,9 +130,6 @@ float line(float b[])
 			}
 		}
 	}
-		 for(i=0;i<n;i++)
-		 printf("%3.2f ",b[i]);
-	 printf("\n");
 	return 0;
 }
 */
