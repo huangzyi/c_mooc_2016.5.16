@@ -1589,4 +1589,47 @@ Please enter the number:
 
 包含数字9的个数："9: %d\n"
 
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+	int a[10]={0},n=0,number,b,i,num;
+	printf("Please enter the number:\n");
+	scanf("%d",&number);
+	num = fabs(number);
+	while(num)
+	{
+		b=num%10;
+		num/=10;
+		n++;
+		switch(b)
+		{
+		case 0: a[0]++;
+			break;
+		case 1:a[1]++;
+			break;
+		case 2:a[2]++;
+			break;
+		case 3:a[3]++;
+			break;
+		case 4:a[4]++;
+			break;
+		case 5:a[5]++;
+			break;
+		case 6:a[6]++;
+			break;
+		case 7:a[7]++;
+			break;
+		case 8:a[8]++;
+			break;
+		case 9:a[9]++;
+			break;
+		}
+	}
+	printf("%d: %d bits\n",number,n);
+	for(i=0;i<10;i++)
+	if(a[i]!=0) printf("%d: %d\n",i,a[i]);
+	return 0;
+}
+
 
